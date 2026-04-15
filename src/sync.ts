@@ -4,6 +4,10 @@ const DISCOGS_TOKEN = process.env.DISCOGS_PERSONAL_ACCESS_TOKEN!;
 const DISCOGS_USER = "matthew_hre";
 const PER_PAGE = 100;
 
+function cleanArtistName(name: string): string {
+  return name.replace(/\s*\(\d+\)$/, "");
+}
+
 interface DiscogsRelease {
   id: number;
   date_added: string;
@@ -70,7 +74,7 @@ async function sync() {
         VALUES (
           ${release.id},
           ${release.basic_information.title},
-          ${release.basic_information.artists[0]?.name || "Unknown"},
+          ${cleanArtistName(release.basic_information.artists[0]?.name || "Unknown")},
           ${release.basic_information.cover_image},
           ${release.date_added}
         )
