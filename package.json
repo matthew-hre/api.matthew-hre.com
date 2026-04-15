@@ -1,0 +1,17 @@
+{
+  "name": "api.matthew-hre.com",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "bun run --watch src/index.ts",
+    "start": "bun run src/index.ts",
+    "sync": "bun run src/sync.ts"
+  },
+  "dependencies": {
+    "hono": "^4.7.10",
+    "postgres": "^3.4.7"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.2.14"
+  }
+}
