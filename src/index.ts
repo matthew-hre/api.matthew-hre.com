@@ -1,6 +1,7 @@
 import { Hono } from "hono";
 import { cors } from "hono/cors";
 import { vinyl } from "./routes/vinyl";
+import { activity } from "./routes/activity";
 
 const app = new Hono();
 
@@ -16,6 +17,7 @@ app.use(
 );
 
 app.route("/vinyl", vinyl);
+app.route("/activity", activity);
 
 app.get("/", (c) => c.json({ status: "ok" }));
 
