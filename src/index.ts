@@ -7,7 +7,11 @@ const app = new Hono();
 app.use(
   "*",
   cors({
-    origin: ["https://matthew-hre.com", "https://beta.matthew-hre.com"],
+    origin: [
+      "https://matthew-hre.com",
+      "https://beta.matthew-hre.com",
+      "http://localhost:3000",
+    ],
   })
 );
 
